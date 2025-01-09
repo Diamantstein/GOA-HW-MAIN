@@ -51,7 +51,7 @@ class magazine extends libraryItem {
 }
 
 
-const booktest = new book("The Great Gatsby", 1925, "F. Scott Fitzgerald", "Classic Fiction");
+const booktest = new book("1984", 1925, "George Orwell", "Dystopian Realityა");
 const magtest = new magazine("New York Times", 1921, 2292929991111111111)
 
 console.log(booktest.getsummary())
