@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CW</title>
+    <style>
+        body {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            background: #111;
+            margin: 0;
+        }
+
+        .candle {
+            position: relative;
+            width: 20px;
+            height: 80px;
+            background: linear-gradient(to bottom, #ffe4c4, #b5651d);
+            border-radius: 5px;
+            box-shadow: inset 0 -5px 10px rgba(0, 0, 0, 0.2);
+        }
+
+        .flame {
+            position: absolute;
+            top: -30px;
+            left: 50%;
+            width: 20px;
+            height: 30px;
+            background: radial-gradient(circle, #ffeb3b, #ff9800, rgba(255, 87, 34, 0));
+            border-radius: 50%;
+            transform: translateX(-50%);
+            animation: flicker 0.2s infinite alternate;
+        }
+
+        @keyframes flicker {
+            0% { transform: translateX(-50%) scaleY(1); opacity: 0.9; }
+            100% { transform: translateX(-50%) scaleY(1.1); opacity: 1; }
+        }
+
+        .flame::before, .flame::after {
+            content: "";
+            position: absolute;
+            width: 5px;
+            height: 5px;
+            background: rgba(255, 255, 255, 0.5);
+            border-radius: 50%;
+            top: 5px;
+            left: 50%;
+            opacity: 0;
+            animation: rise 1.5s infinite ease-out;
+        }
+
+        .flame::after {
+            animation-delay: 0.5s;
+            left: 30%;
+        }
+
+        @keyframes rise {
+            0% { transform: translate(-50%, 0) scale(1); opacity: 1; }
+            100% { transform: translate(-50%, -30px) scale(0.5); opacity: 0; }
+        }
+    </style>
+</head>
+<body>
+    <div class="candle">
+        <div class="flame"></div>
+    </div>
+</body>
+</html>
